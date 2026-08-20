@@ -7,12 +7,17 @@ interface ForecastStripProps {
 }
 
 export default function ForecastStrip({ daily }: ForecastStripProps) {
-  const days = daily.time.map((iso, i) => ({
-    iso,
-    max: daily.temperature_2m_max[i],
-    min: daily.temperature_2m_min[i],
-    code: daily.weather_code[i],
-  }));
+  const days = daily.time
+    .map((iso, i) => ({
+      iso,
+      max: daily.temperature_2m_max[i],
+      min: daily.temperature_2m_min[i],
+      code: daily.weather_code[i],
+    }))
+    .filter(
+      (d): d is { iso: string; max: number; min: number; code: number } =>
+        d.max !== null && d.min !== null && d.code !== null
+    );
 
   return (
     <div className="rounded-3xl border border-white/10 bg-white/[0.05] p-6 shadow-2xl shadow-black/30 backdrop-blur-xl">
