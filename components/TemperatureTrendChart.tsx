@@ -27,7 +27,7 @@ export default function TemperatureTrendChart({ hourly, nowIso }: TemperatureTre
   }
 
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/[0.05] p-6 shadow-2xl shadow-black/30 backdrop-blur-xl">
+    <div className="min-w-0 flex-1 rounded-3xl border border-white/10 bg-white/[0.05] p-6 shadow-2xl shadow-black/30 backdrop-blur-xl">
       <div className="flex items-baseline justify-between">
         <h2 className="font-mono text-[11px] uppercase tracking-widest text-mist">
           Temperature · Next 72h
